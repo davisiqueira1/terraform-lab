@@ -1,4 +1,3 @@
-
 data "aws_ami" "ubuntu" {
   most_recent = true
 
@@ -15,7 +14,7 @@ data "aws_ami" "ubuntu" {
   owners = ["099720109477"] # Canonical ID
 }
 
-resource "aws_instance" "private_instance" {
+resource "aws_instance" "public_instance" {
   ami           = data.aws_ami.ubuntu.id
   instance_type = "t3.micro"
 }
