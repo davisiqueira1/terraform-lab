@@ -39,3 +39,23 @@ variable "private_subnet_az" {
   type     = string
   nullable = false
 }
+
+variable "trusted_ssh_cidr_block" {
+  description = "Trusted IPv4 CIDR block allowed to access instances via SSH"
+  type = string
+  nullable = false
+}
+
+variable "public_instance_ip_address" {
+  description = "Private IPv4 address assigned to the EC2 instance in the public subnet"
+  default = "10.0.1.10"
+  type = string
+  nullable = false
+}
+
+variable "private_instance_ip_address" {
+  description = "Private IPv4 address assigned to the EC2 instance in the private subnet"
+  default = "10.0.2.10"
+  type = string
+  nullable = false
+}
