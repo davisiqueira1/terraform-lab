@@ -59,3 +59,9 @@ variable "private_instance_ip_address" {
   type        = string
   nullable    = false
 }
+
+variable "ssh_public_key_path" {
+  description = "Path to the public key used to access the public instance via SSH"
+  type        = string
+  nullable    = false
+}

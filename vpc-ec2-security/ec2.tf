@@ -23,6 +23,8 @@ resource "aws_instance" "public_instance" {
   vpc_security_group_ids = [aws_security_group.public_instance.id]
 
   associate_public_ip_address = true
+
+  key_name = aws_key_pair.ssh_key_pair.key_name
 }
 
 resource "aws_instance" "private_instance" {
@@ -32,4 +34,11 @@ resource "aws_instance" "private_instance" {
   subnet_id = aws_subnet.private_subnet.id
   private_ip = var.private_instance_ip_address
   vpc_security_group_ids = [aws_security_group.private_instance.id]
+
+  key_name = aws_key_pair.ssh_key_pair.key_name
+}
+
+resource "aws_key_pair" "ssh_key_pair" {
+  key_name = "ssh-key"
+  public_key = file(var.ssh_public_key_path)
 }
